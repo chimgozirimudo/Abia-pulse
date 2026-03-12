@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abia Pulse | Tech & Essentials</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="favicon"  href="favicon.ico">
+    <meta name="theme-color" content="#e11900" />
+    <style>
+      /* BRUTALIST DESIGN SYSTEM */
+      :root {
+        --bg: #ffffff;
+        --text: #000000;
+        --accent-tech: #0b740f;
+        --accent-essentials: #165542;
+        --border: 3px solid #000000;
+        --shadow: 6px 6px 0px #000000;
+      }
+
+      * {
+        box-sizing: border-box;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      body {
+        background-color: var(--bg);
+        color: var(--text);
+        margin: 0;
+        padding: 20px;
+      }
+
+      header {
+        /* border: var(--border);*/
+        padding: 20px;
+        background: #fff;
+        /* box-shadow: var(--shadow);*/
+        margin-bottom: 30px;
+      }
+      */ h1 {
+        margin: 0;
+        font-size: 2rem;
+        text-transform: uppercase;
+      }
+
+      #searchBar {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.1rem;
+        border: var(--border);
+        box-shadow: 4px 4px 0px #000;
+        margin-bottom: 20px;
+        outline: none;
+      }
+
+      .tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+      .tab-btn {
+        flex: 1;
+        padding: 15px;
+        border: var(--border);
+        background: white;
+        cursor: pointer;
+        font-weight: bold;
+        text-transform: uppercase;
+        box-shadow: 4px 4px 0px #000;
+      }
+      .tab-btn.active-tech {
+        background: var(--accent-tech);
+        color: white;
+      }
+      .tab-btn.active-essentials {
+        background: var(--accent-essentials);
+        color: white;
+      }
+
+      #directory {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+      }
+
+      .card {
+        border: var(--border);
+        padding: 20px;
+        background: white;
+        box-shadow: var(--shadow);
+      }
+      .tag {
+        display: inline-block;
+        padding: 5px 10px;
+        border: 2px solid #000;
+        font-size: 0.8rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+      }
+      .tech-tag {
+        background: var(--accent-tech);
+        color: rgb(248, 247, 247);
+      }
+      .ess-tag {
+        background: var(--accent-essentials);
+        color: white;
+      }
+
+      .btn-call {
+        display: block;
+        margin-top: 15px;
+        padding: 10px;
+        text-align: center;
+        border: 2px solid #000;
+        text-decoration: none;
+        color: #000;
+        font-weight: bold;
+      }
+
+      .btn-email {
+  display: block;
+  padding: 10px;
+  text-align: center;
+  border: 2px solid #000;
+  text-decoration: none;
+  color: #000;
+  background: #fff; /* White background for Brutalist look */
+  font-weight: bold;
+  text-transform: uppercase;
+  /*box-shadow: 4px 4px 0px #000;*/
+}
+
+/* Optional: Add a hover effect for both */
+.btn-call:active, .btn-email:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000;
+}
+
+      #offline-notice {
+        display: none;
+        background: #ff0;
+        border: var(--border);
+        padding: 10px;
+        margin-bottom: 10px;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .me {
+        margin-left: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="offline-notice">⚠️ WORKING OFFLINE MODE ACTIVE</div>
+
+    <header style="display: flex; align-items: center; gap: 20px">
+      <img
+        src="abiapulseicon1.png"
+        alt="Abia Pulse Icon"
+        style="width: 60px; height: 60px; background: #fff; object-fit: contain"
+      />
+
+      <div class="me">
+        <h1>Abia Pulse_</h1>
+        <p style="margin: 5px 0 0 0">
+          Connecting you to growth and essentials in Abia State.
+        </p>
+      </div>
+    </header>
+
+    <input
+      type="text"
+      id="searchBar"
+      placeholder="Search resources..."
+      onkeyup="filterDirectory()"
+    />
+
+    <div class="tabs">
+      <button
+        class="tab-btn active-tech"
+        id="techBtn"
+        onclick="setCategory('tech')"
+      >
+        Tech Hubs
+      </button>
+      <button class="tab-btn" id="essBtn" onclick="setCategory('essentials')">
+        Essentials
+      </button>
+    </div>
+
+    <main id="directory"></main>
+
+    <script src="app.js"></script>
+
+    <footer
+      style="
+        margin-top: 50px;
+        padding: 20px;
+        border-top: var(--border);
+        text-align: center;
+      "
+    >
+      <p><strong>Developed by Chimgozirim</strong></p>
+      <p>3MTT Front-End Dev Fellow | Abia State</p>
+      <small>Built for the NextGen Knowledge Showcase 2026</small>
+    </footer>
+  </body>
+</html>
